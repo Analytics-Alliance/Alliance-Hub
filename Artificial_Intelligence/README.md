@@ -1,21 +1,24 @@
 # Artificial Intelligence
 
-This folder contains resources related to Artificial Intelligence, including:
+This folder is dedicated to resources related to Artificial Intelligence, including:
 
-- **Notebooks**: Hands-on Jupyter Notebooks for learning and implementing AI concepts.
-- **Notes**: Written summaries and explanations of key AI topics.
+- **Notebooks**: Interactive Jupyter Notebooks for hands-on learning and practical implementation.
+- **Notes**: Summaries, explanations, and concept overviews to support understanding of AI topics.
 
 ## Subfolders
-- [Notebooks](./Notebooks): Explore practical examples and workflows.
-- [Notes](./Notes): Read detailed explanations and concept overviews.
+- [Notebooks](./Notebooks): Practical examples, tutorials, and workflows.
+- [Notes](./Notes): Detailed explanations and topic guides.
 
 ---
 
-## How to Contribute
+## Contribution Guidelines
 
-To contribute to the AI folder:
-1. Add your notebook to the `Notebooks` subfolder.
-2. Add your written notes to the `Notes` subfolder.
-3. Use descriptive filenames (e.g., `introduction_to_ml.ipynb` or `ai_ethics_notes.tex`).
+We encourage contributions to this folder! Here's how:
+1. Add your Jupyter Notebook to the `Notebooks` subfolder.
+2. Add any written notes, overviews, or articles to the `Notes` subfolder.
+3. Use clear, descriptive filenames (e.g., `deep_learning_intro.ipynb`, `AI_safety_notes.md`).
+4. Ensure your contributions are well-documented and include references if applicable.
 
-Submit a pull request with a description of your contribution.
+Submit a pull request, and provide a summary of your addition.
+
+Happy collaborating!
