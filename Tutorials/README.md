@@ -1,8 +1,12 @@
 # Tutorials
 
-This folder is dedicated to beginner-friendly tutorials and step-by-step guides contributed by members of the Alliance Hub. Tutorials aim to help learners build foundational knowledge in various fields like Python programming, data visualization, and machine learning.
+This folder contains general-purpose tutorials that are not tied to a specific domain. These are ideal for beginners and focus on foundational skills and workflows.
 
 ## Contents
-- **Python Basics**: Introductory guides for Python programming and common libraries.
-- **Data Visualization**: Tutorials on creating visualizations using tools like Matplotlib, Seaborn, or Plotly.
-- **Machine Learning Workflow**: Guides on end-to-end machine learning workflows.
+- **Python Basics**: Learn Python fundamentals.
+- **Data Visualization**: Explore visualization techniques using Matplotlib and Seaborn.
+- **Git Workflow**: A guide to working with Git and GitHub for collaboration.
+
+For domain-specific tutorials, check the relevant folders:
+- [Artificial Intelligence Tutorials](../Artificial_Intelligence/Tutorials)
+- [Data Science Tutorials](../Data_Science/Tutorials)
