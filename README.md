@@ -68,6 +68,11 @@ Need more guidance? Check out our [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ---
 
+## **Feature Ideas?**  
+We’re always open to suggestions for improving the repository! Share your ideas in our [Feature Ideas Discussion](./discussions) or open a feature request issue.  
+
+---
+
 ## **Get Recognized!**  
 When you contribute, your work may be featured on our **LinkedIn page**, [Alliance-Hub](https://www.linkedin.com/company/hub-alliance)!  
 
