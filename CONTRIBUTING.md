@@ -55,7 +55,7 @@ Contributions come in many forms! Here are some ways to get involved:
 - Fork the repository
 - Create a descriptive branch
 - Commit with clear messages
-- Open a pull request
+- Open a pull request using the [Pull Request Template](./.github/PULL_REQUEST_TEMPLATE.md)
 - Provide a brief explanation of your contribution
 
 ## Contribution Types We Value
@@ -83,11 +83,18 @@ As we're just starting, every contribution is crucial:
 - Experienced professional? Share your expertise!
 - Student? Your fresh perspective is invaluable!
 
+## Proposing New Ideas
+
+We’re always open to new ideas for improving the repository! Here’s how you can share your ideas:
+- **Use Discussions**: Head to the [Discussions](./discussions) tab and add your idea to the pinned "Feature Ideas" thread.
+- **Open an Issue**: If you have a specific feature request, open a new issue with the title "Feature Request: [Your Idea]" and describe your suggestion in detail.
+
+Let’s work together to grow this repository! 🌟
+
 ## Communication Channels
 
 Got questions or ideas?
 - Open a GitHub issue
-<!-- - Email: analyticsalliance@example.com -->
 - Join our discussions
 
 ### Licensing
