@@ -26,24 +26,30 @@ From foundational concepts to advanced programming, this is your space to learn 
 - **Notes/**: Explanations and summaries of core computer science topics.  
 - **Projects/**: CS implementations and experiments.  
 
-### 4. **[Sustainability](./Sustainability/README.md)**  
+### 4. **[Scientific Programming](./Scientific-Programming/README.md)**  
+Exploring scientific/mathematical phenomena through modeling, simulation, and fun visualizations:  
+- **Notebooks/**: Visualizations, mathematical intuitions and .  
+- **Notes/**: Explanations and summaries of concepts.  
+- **Projects/**: Implementations of scientific/mathematical concepts and fun experiments.  
+
+### 5. **[Sustainability](./Sustainability/README.md)**  
 Explore innovative ideas and tools to tackle global challenges:  
 - **Notebooks/**: Data-driven projects and analyses related to sustainability.  
 - **Notes/**: Frameworks, research insights, and sustainable practices.  
 - **Case-Studies/**: Examples of real-world sustainability successes.  
 
-### 5. **[Mind Maps](./Mind-Maps/README.md)**  
+### 6. **[Mind Maps](./Mind-Maps/README.md)**  
 Visual learners, rejoice! This folder contains:  
 - Diagrams and mind maps that simplify and organize complex concepts.  
 - Organized by domain (e.g., AI, Data Science, etc.) for easy navigation.  
 
-### 6. **[Shared Resources](./Shared-Resources/README.md)**  
+### 7. **[Shared Resources](./Shared-Resources/README.md)**  
 A treasure trove of reusable goodies:  
 - **Datasets/**: General-purpose datasets for your projects and experiments.  
 - **Templates/**: Pre-built templates for notebooks, reports, and more.  
 - **Tools/**: Utilities and scripts to simplify workflows.  
 
-### 7. **[Tutorials](./Tutorials/README.md)**  
+### 8. **[Tutorials](./Tutorials/README.md)**  
 New to something? Start here! Beginner-friendly guides and advanced step-by-step instructions:  
 - **Beginner/**: Tutorials to kickstart your journey.  
 - **Advanced/**: Dive into complex topics and build expertise.  
