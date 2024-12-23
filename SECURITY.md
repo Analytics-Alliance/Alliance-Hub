@@ -4,7 +4,7 @@
 
 If you discover a security vulnerability in Alliance Hub, please:
 
-<!-- 1. Email: security@alliancehub.org -->
+1. Email: analyticsalliance.team@gmail.com
 2. Do not open a public issue
 3. Provide detailed information about the vulnerability
 4. Allow time for investigation and resolution
