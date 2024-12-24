@@ -19,6 +19,13 @@ body {
 .dashboard-container {
     max-width: 1400px;
     margin: 0 auto;
+    animation: fadeIn 0.5s ease-in;
+    padding: 2rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .card {
@@ -27,11 +34,14 @@ body {
     box-shadow: var(--shadow);
     border: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .card-header {
@@ -92,4 +102,21 @@ h1 {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+}
+
+/* Summary Cards */
+.card-title {
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+/* Alert styling */
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
 }
