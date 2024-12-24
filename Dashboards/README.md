@@ -8,7 +8,7 @@ Welcome to the **Dashboards** folder of the **Alliance Hub**! This section showc
 
 Each dashboard in this folder demonstrates a specific use case or capability. Current dashboards include:
 
-- **[Inventory Management Dashboard](./Inventory-Management-Dashboard/)**  
+- **[Inventory Management Dashboard](./Inventory-Management-Dashboard/README.md)**  
 
 ---
 
