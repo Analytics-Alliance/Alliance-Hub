@@ -1,49 +1,30 @@
-import numpy as np
-import pandas as pd
 import dash
-from dash import dcc, html, dash_table
-import plotly.express as px
+from dash import Dash
+import pandas as pd
+from layouts.main_layout import create_layout
+from utils.data_processing import process_data
+from callbacks.callbacks import register_callbacks
+import dash_bootstrap_components as dbc
 
+# Initialize the Dash app with external stylesheets
+app = Dash(
+    __name__,
+    external_stylesheets=[
+        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+        dbc.themes.BOOTSTRAP
+    ],
+    suppress_callback_exceptions=True
+)
 
-class Invento:
-    def __init__(self, df:pd.DataFrame):
-        self.df = df
-        self.bar = self.setup_bar()
-        self.app = self.setup_app()
+# Load and process data
+df = pd.read_csv("data/inventory_data.csv")
+processed_df = process_data(df)
 
+# Create the app layout
+app.layout = create_layout(processed_df)
 
-    def setup_app(self):
-        app = dash.Dash(__name__)
-
-        # App layout
-        app.layout = html.Div(children=[
-            html.Div(children=[
-                html.H1("DataFrame Display"),
-                dash_table.DataTable(
-                    id='table',
-                    columns=[{"name": i, "id": i} for i in self.df.columns],
-                    data=self.df.to_dict('records'),
-                    style_cell={'textAlign': 'left'}
-                )], style={"display":"inline-block"}),
-            html.Div(children=[
-                html.H2("Stock per Product"),
-                dcc.Graph(figure=self.bar)
-            ], style={'width':'500px',      'display':'inline-block', 'margin':'5px'})
-        ])
-        
-        return app
-    
-    def setup_bar(self):
-        fig = px.bar(inv_df, x='name', y='stock', title='Stock per Product', color="name")
-        return fig
+# Register callbacks
+register_callbacks(app)
 
 if __name__ == "__main__":
-    inv_df = pd.read_csv("data/inventory_data.csv")
-
-    new_stock = np.random.normal(inv_df["stock"].mean(), inv_df["stock"].std(), inv_df.shape[0])
-    inv_df["stock"] = new_stock
-
-    inv = Invento(inv_df)
-
-    inv.app.run_server(debug=True)
-    
+    app.run_server(debug=True)
