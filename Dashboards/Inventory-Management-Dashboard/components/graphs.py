@@ -1,51 +1,62 @@
-import plotly.express as px
 import dash_bootstrap_components as dbc
-from dash import dcc
+from dash import dcc, html
+import plotly.express as px
+import plotly.graph_objects as go
 
-def create_stock_bar_chart(df):
+def create_stock_bar_chart(inventory_status):
+    fig = go.Figure([
+        go.Bar(
+            name='Current Stock',
+            x=inventory_status['ProductName'],
+            y=inventory_status['OnHandQty'],
+            marker_color='#36A2EB'
+        ),
+        go.Bar(
+            name='Reorder Point',
+            x=inventory_status['ProductName'],
+            y=inventory_status['ReorderPoint'],
+            marker_color='#FF6384'
+        )
+    ])
+    
+    fig.update_layout(
+        title='Current Stock vs Reorder Points',
+        barmode='group',
+        height=400,
+        margin=dict(l=40, r=40, t=40, b=40)
+    )
+
+    return dbc.Card([
+        dbc.CardHeader([
+            html.H4("Stock Levels", className="mb-0")
+        ]),
+        dbc.CardBody([
+            dcc.Graph(figure=fig, config={'displayModeBar': False})
+        ])
+    ])
+
+def create_sales_trend(sales_metrics):
+    # Create a bar chart for total revenue by product
     fig = px.bar(
-        df, 
-        x='name', 
-        y='stock', 
-        title='Stock per Product',
-        color="name",
-        template="plotly_white",
-        height=500  # Fixed height for better consistency
+        sales_metrics,
+        x='SKU',
+        y='TotalRevenue',
+        title='Revenue by Product',
+        labels={'TotalRevenue': 'Total Revenue ($)', 'SKU': 'Product SKU'},
+        color='TotalQuantitySold',
+        color_continuous_scale='Viridis'
     )
     
     fig.update_layout(
-        showlegend=False,
-        margin=dict(l=20, r=20, t=40, b=20),
-        title_x=0.5,
-        title_font_size=16,
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        xaxis=dict(
-            showgrid=False,
-            showline=True,
-            linecolor='rgba(0,0,0,0.1)'
-        ),
-        yaxis=dict(
-            showgrid=True,
-            gridcolor='rgba(0,0,0,0.05)',
-            showline=True,
-            linecolor='rgba(0,0,0,0.1)'
-        )
+        height=400,
+        margin=dict(l=40, r=40, t=40, b=40)
     )
-    
-    return dbc.Card(
-        [
-            dbc.CardHeader("Stock Levels"),
-            dbc.CardBody(
-                dcc.Graph(
-                    id='stock-graph',
-                    figure=fig,
-                    config={
-                        'displayModeBar': False,
-                        'scrollZoom': False
-                    }
-                )
-            )
-        ],
-        className="h-100"
-    )
+
+    return dbc.Card([
+        dbc.CardHeader([
+            html.H4("Sales Analysis", className="mb-0")
+        ]),
+        dbc.CardBody([
+            dcc.Graph(figure=fig, config={'displayModeBar': False})
+        ])
+    ])

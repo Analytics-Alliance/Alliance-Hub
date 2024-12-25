@@ -1,34 +1,52 @@
-import numpy as np
 import pandas as pd
+from datetime import datetime
 
-def process_data(df: pd.DataFrame) -> pd.DataFrame:
+def load_and_process_data():
     """
-    Process the inventory data by cleaning and transforming it as needed.
-    
-    Args:
-        df (pd.DataFrame): Raw inventory dataframe
-        
-    Returns:
-        pd.DataFrame: Processed dataframe
+    Load and process all data files, creating relationships between them.
     """
-    # Create a copy to avoid modifying the original dataframe
-    processed_df = df.copy()
+    # Load all CSV files
+    inventory_levels = pd.read_csv("data/inventory_levels.csv")
+    products = pd.read_csv("data/products.csv")
+    purchase_orders = pd.read_csv("data/purchase_orders.csv")
+    sales_orders = pd.read_csv("data/sales_orders.csv")
+    suppliers = pd.read_csv("data/suppliers.csv")
+    warehouses = pd.read_csv("data/warehouses.csv")
+
+    # Calculate total inventory by SKU (combining warehouses)
+    total_inventory = inventory_levels.groupby('SKU')['OnHandQty'].sum().reset_index()
     
-    # Generate random stock values if needed (as in your original code)
-    new_stock = np.random.normal(
-        processed_df["stock"].mean(), 
-        processed_df["stock"].std(), 
-        processed_df.shape[0]
+    # Merge product information with inventory levels
+    inventory_status = pd.merge(
+        total_inventory,
+        products,
+        on='SKU',
+        how='left'
     )
-    processed_df["stock"] = new_stock
+
+    # Calculate key metrics
+    inventory_status['TotalValue'] = inventory_status['OnHandQty'] * inventory_status['RetailPrice']
+    inventory_status['NeedsReorder'] = inventory_status['OnHandQty'] <= inventory_status['ReorderPoint']
+
+    # Process sales data
+    sales_orders['OrderDate'] = pd.to_datetime(sales_orders['OrderDate'])
+    sales_by_product = sales_orders.groupby('SKU').agg({
+        'Quantity': 'sum',
+        'Price': lambda x: (x * sales_orders.loc[x.index, 'Quantity']).sum()
+    }).reset_index()
+    sales_by_product.columns = ['SKU', 'TotalQuantitySold', 'TotalRevenue']
+
+    # Process purchase orders
+    purchase_orders['PODate'] = pd.to_datetime(purchase_orders['PODate'])
+    pending_orders = purchase_orders[purchase_orders['ActualDeliveryDate'].isna()]
     
-    # Round stock values to 2 decimal places
-    processed_df["stock"] = processed_df["stock"].round(2)
-    
-    # Ensure all required columns exist
-    required_columns = ["name", "stock", "price"]
-    for col in required_columns:
-        if col not in processed_df.columns:
-            raise ValueError(f"Required column '{col}' not found in dataframe")
-    
-    return processed_df
+    # Create final dashboard data
+    dashboard_data = {
+        'inventory_status': inventory_status,
+        'sales_metrics': sales_by_product,
+        'pending_orders': pending_orders,
+        'suppliers': suppliers,
+        'warehouses': warehouses
+    }
+
+    return dashboard_data

@@ -1,12 +1,11 @@
 import dash
 from dash import Dash
-import pandas as pd
 from layouts.main_layout import create_layout
-from utils.data_processing import process_data
+from utils.data_processing import load_and_process_data  # Updated import
 from callbacks.callbacks import register_callbacks
 import dash_bootstrap_components as dbc
 
-# Initialize the Dash app with external stylesheets
+# Initialize the Dash app
 app = Dash(
     __name__,
     external_stylesheets=[
@@ -17,11 +16,10 @@ app = Dash(
 )
 
 # Load and process data
-df = pd.read_csv("data/inventory_data.csv")
-processed_df = process_data(df)
+dashboard_data = load_and_process_data()
 
 # Create the app layout
-app.layout = create_layout(processed_df)
+app.layout = create_layout(dashboard_data)
 
 # Register callbacks
 register_callbacks(app)

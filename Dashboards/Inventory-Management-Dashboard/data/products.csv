@@ -1,0 +1,6 @@
+SKU,ProductName,Category,SupplierID,CostPrice,RetailPrice,SafetyStock,ReorderPoint
+SMT100,Smartphone A,Smartphones,1,200,350,50,100
+SMT200,Smartphone B,Smartphones,2,250,420,30,70
+HDP150,Headphones X,Audio,3,50,90,20,40
+GME300,Gaming Mouse,Gaming,1,15,30,10,25
+TVR500,Tablet VR,Tablets,2,180,300,20,50
