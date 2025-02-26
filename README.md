@@ -97,7 +97,7 @@ Together, we’re building a resource that’s:
 ---
 
 ## **Got Questions or Ideas?**  
-We’re all ears! Drop us a message at:  
-📧 [analyticsalliance@example.com](mailto:analyticsalliance@example.com)  
+We’re all ears! Drop us a message at our linkedIn page:  
+https://www.linkedin.com/company/alliance-analytics
 
 We can’t wait to see what you’ll bring to the hub. Thanks for being part of this journey! 🚀  
